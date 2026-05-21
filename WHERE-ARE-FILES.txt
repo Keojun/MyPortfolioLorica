@@ -1,0 +1,4 @@
+Portfolio project root:
+C:\Users\admin\.cursor\projects\Keojun-MyPortfolioLorica
+
+Open this folder in Cursor: File → Open Folder → paste the path above.

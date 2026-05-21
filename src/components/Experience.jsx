@@ -1,0 +1,42 @@
+import { experience } from '../data/portfolio'
+import SectionHeading from './SectionHeading'
+
+export default function Experience() {
+  return (
+    <section className="section section--alt" id="experience">
+      <div className="container">
+        <SectionHeading
+          label="Experience"
+          title="Professional journey"
+          description="From logistics and creative work to documentation and IT-focused roles."
+        />
+
+        <div className="timeline">
+          {experience.map((job, i) => (
+            <article
+              key={`${job.company}-${job.period}`}
+              className="timeline__item reveal"
+              style={{ '--reveal-delay': `${i * 70}ms` }}
+            >
+              <div className="timeline__marker" aria-hidden />
+              <div className="timeline__body">
+                <div className="timeline__head">
+                  <div>
+                    <h3>{job.role}</h3>
+                    <p className="timeline__company">{job.company}</p>
+                  </div>
+                  <time className="timeline__period">{job.period}</time>
+                </div>
+                <ul>
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
