@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import YouTube from './components/YouTube'
 import { useReveal } from './hooks/useReveal'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <YouTube />
         <Experience />
         <Education />
         <Contact />

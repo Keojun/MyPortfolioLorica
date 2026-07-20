@@ -1,3 +1,4 @@
+import { FaYoutube } from 'react-icons/fa'
 import { FiGithub, FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
 import { personal } from '../data/portfolio'
 import profilePhoto from '../../assets/c__Users_admin_AppData_Roaming_Cursor_User_workspaceStorage_80338ddb7914ecb79f1779ec4c7b5488_images_20240214_215148-0cee4e57-53cf-4fbc-9e0c-d0ffc58600f5.png'
@@ -41,16 +42,28 @@ export default function Hero() {
               <span className="hero__frame-badge-label">Projects shipped</span>
             </div>
           </div>
-          <a
-            href={personal.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero__github"
-            aria-label="GitHub profile"
-          >
-            <FiGithub />
-            <span>@Keojun</span>
-          </a>
+          <div className="hero__socials">
+            <a
+              href={personal.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__social"
+              aria-label="GitHub profile"
+            >
+              <FiGithub />
+              <span>@Keojun</span>
+            </a>
+            <a
+              href={personal.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero__social hero__social--youtube"
+              aria-label="YouTube channel"
+            >
+              <FaYoutube />
+              <span>@keocxy</span>
+            </a>
+          </div>
         </div>
       </div>
 

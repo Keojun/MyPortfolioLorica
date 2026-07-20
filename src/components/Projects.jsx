@@ -1,4 +1,4 @@
-import { FiArrowUpRight, FiGithub } from 'react-icons/fi'
+import { FiArrowUpRight, FiExternalLink } from 'react-icons/fi'
 import { projects } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
 
@@ -11,15 +11,15 @@ export default function Projects() {
       <div className="container">
         <SectionHeading
           label="Projects"
-          title="Selected work on GitHub"
-          description="Full-stack and frontend applications built for real business scenarios."
+          title="Selected work"
+          description="Full-stack and frontend applications built for real business scenarios—live demos and repositories."
         />
 
         <div className="projects__featured">
           {featured.map((project, i) => (
             <a
               key={project.title}
-              href={project.github}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card project-card--featured reveal"
@@ -27,7 +27,7 @@ export default function Projects() {
             >
               <div className="project-card__top">
                 <span className="project-card__icon" style={{ background: `${project.accent}22`, color: project.accent }}>
-                  <FiGithub />
+                  <FiExternalLink />
                 </span>
                 <FiArrowUpRight className="project-card__arrow" aria-hidden />
               </div>
@@ -47,7 +47,7 @@ export default function Projects() {
           {others.map((project, i) => (
             <a
               key={project.title}
-              href={project.github}
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card reveal"
@@ -55,7 +55,7 @@ export default function Projects() {
             >
               <div className="project-card__top">
                 <span className="project-card__icon" style={{ background: `${project.accent}22`, color: project.accent }}>
-                  <FiGithub />
+                  <FiExternalLink />
                 </span>
                 <FiArrowUpRight className="project-card__arrow" aria-hidden />
               </div>

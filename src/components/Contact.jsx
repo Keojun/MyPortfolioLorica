@@ -1,3 +1,4 @@
+import { FaYoutube } from 'react-icons/fa'
 import { FiGithub, FiMail, FiPhone } from 'react-icons/fi'
 import { personal } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
@@ -33,6 +34,13 @@ export default function Contact() {
               <span>
                 <small>GitHub</small>
                 github.com/Keojun
+              </span>
+            </a>
+            <a href={personal.youtube} target="_blank" rel="noopener noreferrer" className="contact__link">
+              <FaYoutube aria-hidden />
+              <span>
+                <small>YouTube</small>
+                youtube.com/c/keocxy
               </span>
             </a>
           </div>

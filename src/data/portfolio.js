@@ -8,7 +8,19 @@ export const personal = {
   phone: '+63 965 745 4737',
   location: 'Cabuyao, Laguna, Philippines',
   github: 'https://github.com/Keojun',
+  youtube: 'https://www.youtube.com/c/keocxy',
 }
+
+export const youtube = {
+  url: 'https://www.youtube.com/c/keocxy',
+  handle: 'keocxy',
+  title: 'Keocxy',
+  description:
+    'Video edits, creative projects, and personal content—rooted in years of freelance editing on Fiverr.',
+}
+
+/** Paste each video ID from youtube.com/watch?v=VIDEO_ID */
+export const featuredVideos = []
 
 export const skills = [
   { category: 'Development', items: ['Web Development', 'Frontend Development', 'Backend Development'] },
@@ -24,7 +36,7 @@ export const projects = [
     description:
       'Thesis project: end-to-end system for patient records, appointments, and data analytics tailored for a maternity clinic.',
     tech: ['Full-Stack', 'MySQL', 'Data Analytics'],
-    github: 'https://github.com/Keojun/JopePaanakan.git',
+    link: 'https://github.com/Keojun/JopePaanakanRevision',
     featured: true,
     accent: '#14b8a6',
   },
@@ -34,7 +46,7 @@ export const projects = [
     description:
       'Web application for managing coffee shop operations—inventory, orders, and customer-facing flows.',
     tech: ['Web App', 'Frontend', 'Backend'],
-    github: 'https://github.com/Keojun/KapengBarako.git',
+    link: 'https://kapeng-barako.vercel.app',
     featured: true,
     accent: '#d97706',
   },
@@ -44,7 +56,7 @@ export const projects = [
     description:
       'Business management solution for a cookie bakery—product catalog, orders, and operational workflows.',
     tech: ['Web Development', 'Database'],
-    github: 'https://github.com/Keojun/IhurnoCookies.git',
+    link: 'https://ihurnocookies.vercel.app',
     featured: false,
     accent: '#e11d48',
   },
@@ -54,7 +66,7 @@ export const projects = [
     description:
       'Vue.js-based retail interface for a gold shop—product showcase, cart flows, and modern UI patterns.',
     tech: ['Vue.js', 'Frontend', 'E-commerce UI'],
-    github: 'https://github.com/Keojun/GoldShopVue.git',
+    link: 'https://golddiggervue.vercel.app',
     featured: false,
     accent: '#ca8a04',
   },
@@ -62,7 +74,7 @@ export const projects = [
 
 export const experience = [
   {
-    company: 'Gemphil Technologies Inc.',
+    company: 'Gemphil   Inc.',
     role: 'Documentation Specialist',
     period: 'Mar 2026 – Apr 2026',
     points: [
@@ -136,6 +148,7 @@ export const navLinks = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'youtube', label: 'YouTube' },
   { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'contact', label: 'Contact' },
