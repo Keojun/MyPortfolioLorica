@@ -61,7 +61,7 @@ export default function Hero() {
               aria-label="YouTube channel"
             >
               <FaYoutube />
-              <span>@keocxy</span>
+              <span>@Keojun</span>
             </a>
           </div>
         </div>

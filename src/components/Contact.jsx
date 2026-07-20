@@ -40,7 +40,7 @@ export default function Contact() {
               <FaYoutube aria-hidden />
               <span>
                 <small>YouTube</small>
-                youtube.com/c/keocxy
+                youtube.com/@Keojun
               </span>
             </a>
           </div>

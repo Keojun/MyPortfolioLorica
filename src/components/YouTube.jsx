@@ -1,40 +1,49 @@
-import { useState } from 'react'
 import { FaYoutube } from 'react-icons/fa'
-import { FiArrowUpRight, FiPlay, FiX } from 'react-icons/fi'
+import { FiArrowUpRight, FiExternalLink } from 'react-icons/fi'
 import { featuredVideos, youtube } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
 
-function VideoCard({ video, onPlay }) {
+function VideoEmbed({ video, featured = false }) {
   return (
-    <button type="button" className="youtube-card reveal" onClick={() => onPlay(video)}>
-      <div className="youtube-card__thumb">
-        <img
-          src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-          alt=""
+    <article
+      className={`youtube-embed reveal${featured ? ' youtube-embed--featured' : ''}`}
+    >
+      <div className="youtube-embed__player">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+          title={video.title}
           loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
         />
-        <span className="youtube-card__play" aria-hidden>
-          <FiPlay />
-        </span>
       </div>
-      <div className="youtube-card__body">
+      <div className="youtube-embed__meta">
         <h3>{video.title}</h3>
-        {video.description && <p>{video.description}</p>}
+        <a
+          href={`https://www.youtube.com/watch?v=${video.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="youtube-embed__link"
+        >
+          Watch on YouTube
+          <FiExternalLink aria-hidden />
+        </a>
       </div>
-    </button>
+    </article>
   )
 }
 
 export default function YouTube() {
-  const [activeVideo, setActiveVideo] = useState(null)
+  const spotlight = featuredVideos.find((video) => video.featured) ?? featuredVideos[0]
+  const previews = featuredVideos.filter((video) => video.id !== spotlight?.id)
 
   return (
     <section className="section section--alt" id="youtube">
       <div className="container">
         <SectionHeading
           label="YouTube"
-          title="Creative work on camera"
-          description="Video edits and content from my channel—alongside the systems I build in code."
+          title="Latest from my channel"
+          description="Embedded previews from @Keojun—Roblox gameplay, creative edits, and personal uploads."
         />
 
         <div className="youtube__channel reveal">
@@ -52,64 +61,32 @@ export default function YouTube() {
             rel="noopener noreferrer"
             className="btn btn--primary youtube__channel-cta"
           >
-            Visit channel
+            Subscribe on YouTube
             <FiArrowUpRight aria-hidden />
           </a>
         </div>
 
-        {featuredVideos.length > 0 && (
+        {spotlight && (
+          <div className="youtube__spotlight">
+            <VideoEmbed video={spotlight} featured />
+          </div>
+        )}
+
+        {previews.length > 0 && (
           <div className="youtube__grid">
-            {featuredVideos.map((video, i) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                onPlay={setActiveVideo}
-                style={{ '--reveal-delay': `${i * 80}ms` }}
-              />
+            {previews.map((video) => (
+              <VideoEmbed key={video.id} video={video} />
             ))}
           </div>
         )}
 
         <p className="youtube__browse reveal">
           <a href={`${youtube.url}/videos`} target="_blank" rel="noopener noreferrer">
-            Browse all uploads on YouTube
+            See all uploads on YouTube
             <FiArrowUpRight aria-hidden />
           </a>
         </p>
       </div>
-
-      {activeVideo && (
-        <div
-          className="youtube-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Playing ${activeVideo.title}`}
-          onClick={() => setActiveVideo(null)}
-        >
-          <div className="youtube-modal__panel" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="youtube-modal__close"
-              aria-label="Close video"
-              onClick={() => setActiveVideo(null)}
-            >
-              <FiX />
-            </button>
-            <div className="youtube-modal__embed">
-              <iframe
-                src={`https://www.youtube.com/embed/${activeVideo.id}?autoplay=1&rel=0`}
-                title={activeVideo.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="youtube-modal__meta">
-              <h3>{activeVideo.title}</h3>
-              {activeVideo.description && <p>{activeVideo.description}</p>}
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   )
 }

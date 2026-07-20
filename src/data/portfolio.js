@@ -8,19 +8,32 @@ export const personal = {
   phone: '+63 965 745 4737',
   location: 'Cabuyao, Laguna, Philippines',
   github: 'https://github.com/Keojun',
-  youtube: 'https://www.youtube.com/c/keocxy',
+  youtube: 'https://www.youtube.com/@Keojun',
 }
 
 export const youtube = {
-  url: 'https://www.youtube.com/c/keocxy',
-  handle: 'keocxy',
-  title: 'Keocxy',
+  url: 'https://www.youtube.com/@Keojun',
+  handle: 'Keojun',
+  title: 'Keojun',
   description:
-    'Video edits, creative projects, and personal content—rooted in years of freelance editing on Fiverr.',
+    'Roblox gameplay, horror runs, and creative edits—personal content from my channel alongside dev projects.',
 }
 
-/** Paste each video ID from youtube.com/watch?v=VIDEO_ID */
-export const featuredVideos = []
+export const featuredVideos = [
+  {
+    id: 'oC4yPumT-7g',
+    title: 'SCARY MEATBALL STALL CART VERSION PART 2 | ROBLOX HORROR',
+    featured: true,
+  },
+  {
+    id: 'm84k4LQNBYg',
+    title: 'WE PLAYED SCARY MEATBALL STALL AND IT WAS A BAD IDEA | ROBLOX HORROR',
+  },
+  {
+    id: 'kxJBVCBAIwU',
+    title: 'BULLIED GETS REVENGE AND GETS BETTER! (TAGALOG RP) | ROBLOX BROOKHAVEN RP',
+  },
+]
 
 export const skills = [
   { category: 'Development', items: ['Web Development', 'Frontend Development', 'Backend Development'] },
