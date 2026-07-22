@@ -83,6 +83,16 @@ export const projects = [
     featured: false,
     accent: '#ca8a04',
   },
+  {
+    title: 'BuwEase',
+    subtitle: 'Tax & Accounting Services',
+    description:
+      'Business website for a Philippine tax and accounting firm—bookkeeping, BIR compliance, and consultation booking for SMEs and freelancers.',
+    tech: ['Web Development', 'Frontend', 'Business Site'],
+    link: 'https://buwease.vercel.app',
+    featured: false,
+    accent: '#059669',
+  },
 ]
 
 export const experience = [

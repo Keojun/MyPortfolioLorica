@@ -38,7 +38,7 @@ export default function Hero() {
           <div className="hero__frame">
             <img src={profilePhoto} alt={`Portrait of ${personal.name}`} width={420} height={520} />
             <div className="hero__frame-badge">
-              <span className="hero__frame-badge-num">4+</span>
+              <span className="hero__frame-badge-num">5+</span>
               <span className="hero__frame-badge-label">Projects shipped</span>
             </div>
           </div>
