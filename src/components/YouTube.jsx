@@ -1,21 +1,40 @@
+import { useState } from 'react'
 import { FaYoutube } from 'react-icons/fa'
-import { FiArrowUpRight, FiExternalLink } from 'react-icons/fi'
+import { FiArrowUpRight, FiExternalLink, FiPlay } from 'react-icons/fi'
 import { featuredVideos, youtube } from '../data/portfolio'
 import SectionHeading from './SectionHeading'
 
 function VideoEmbed({ video, featured = false }) {
+  const [loaded, setLoaded] = useState(false)
+
   return (
-    <article
-      className={`youtube-embed reveal${featured ? ' youtube-embed--featured' : ''}`}
-    >
+    <article className={`youtube-embed reveal${featured ? ' youtube-embed--featured' : ''}`}>
       <div className="youtube-embed__player">
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
-          title={video.title}
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+        {loaded ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+            title={video.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            type="button"
+            className="youtube-embed__poster"
+            onClick={() => setLoaded(true)}
+            aria-label={`Play video: ${video.title}`}
+          >
+            <img
+              src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+              alt=""
+              loading="lazy"
+            />
+            <span className="youtube-embed__play" aria-hidden>
+              <FiPlay />
+            </span>
+            <span className="youtube-embed__poster-label">Click to load preview</span>
+          </button>
+        )}
       </div>
       <div className="youtube-embed__meta">
         <h3>{video.title}</h3>
@@ -43,7 +62,7 @@ export default function YouTube() {
         <SectionHeading
           label="YouTube"
           title="Latest from my channel"
-          description="Embedded previews from @Keojun—Roblox gameplay, creative edits, and personal uploads."
+          description="Click a thumbnail to load the preview—keeps the page fast while still letting you watch inline."
         />
 
         <div className="youtube__channel reveal">
